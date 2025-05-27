@@ -1,0 +1,28 @@
+<valid_topic_shift_label>
+<item>
+<name>YES</name>
+<desc>The current utterance completely changes the topic from preceding context.</desc>
+</item>
+<item>
+<name>NO</name>
+<desc>The current utterance just comments, answers, develops about preceding context or the first utterance of given dialogue, in other words, the case of U0.</desc>
+</item>
+</valid_topic_shift_label>
+
+## TASK ##
+You are given a dialogue starting with U. From utterance number 0, you have to answer the following sub-tasks for each utterance.
+1. Summarize the preceding and subsequent context seperately
+2. Output the topic_shift_label
+Use the list <valid_topic_shift_label>...</valid_topic_shift_label>.
+
+## OUTPUT FORMAT ##
+<U{utterance number}>
+<preceding_context>{context of the previous utterance}</preceding_context>
+<subsequent_context>{context of the next utterance}</subsequent_context>
+<topic_shift_label>{valid topic shift label}</topic_shift_label>
+</U{utterance number}>
+
+## INPUT ##
+{XML-structured dialogue}
+
+## OUTPUT ##

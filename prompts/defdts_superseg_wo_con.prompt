@@ -1,0 +1,66 @@
+<valid_utterance_intent>
+<item>
+<item>
+<name>DIFFERENT_QUESTION</name>
+<desc>Questioning about something that is not similar or topically different to preciding context. A topic shift</desc>
+<example>
+<uesr>I want to make sure that my family is financially taken care of after my passing. How do Social Security survivor benefits work?</uesr>
+<agent>Your Social Security can help ensure that your family is taken care of if you have earned enough credits through working.</agent>
+<uesr>What about my children? What would they receive? (a topic shift)</uesr>
+</example>
+</item>
+<name>RELEVANT_QUESTION</name>
+<desc>Questioning about something that is similar or topically coherent to preceding context. Not a topic shift</desc>
+<example>
+<uesr>will my new card have the same number as my old card?</uesr>
+<agent>Your new card will have the same number as your previous card and will show your new name</agent>
+<uesr>what documents do I need? (not a topic shift)</uesr>
+</example>
+</item>
+<item>
+<name>ANSWERING</name>
+<desc>Answering preceding utterance. Not a topic shift</desc>
+<example>
+<uesr>What would my widower receive in benefits?</uesr>
+<agent>In the event of your passing, your widower would start receiving reduced benefits at age 60 or full benefits if they are at retirement age or older. (not a topic shift)</agent> 
+</example>
+</item>
+<item>
+<name>ADDITIONAL_COMMENT</name>
+<desc>An additional comment from the same speaker in addition to a previous utterance. Not a topic shift</desc>
+<example>
+<uesr>What about my children? What would they receive?</uesr>
+<agent>Your children who are under 18 or age 19 if still attending school full time can receive Social Security benefits if they are unmarried.</agent>
+<uesr>Do you need more information about this? (not a topic shift)</uesr>
+</example>
+</item>
+</valid_utterance_intent>
+<valid_topic_shift_label>
+<item>
+<name>YES</name>
+<desc>The current utterance has **no topical** relation to the preceding conversation context OR is the first utterance in the conversation, marking the beginning of a new dialogue segment.</desc>
+</item>
+<item>
+<name>NO</name>
+<desc>The current utterance has **relevant OR equal** topic to the preceding conversation context.</desc>
+</item>
+</valid_topic_shift_label>
+
+## TASK ##
+You are given a dialogue starting with U. From utterance number 0, you have to answer the following sub-tasks for each utterance.
+1. Output the utterance_intent
+Use the list <valid_utterance_intent>...</valid_utterance_intent> to categorize utterance.
+Consider topical difference between preceding and subsequent context.
+2. Output the topic_shift_label
+Use the list <valid_topic_shift_label>...</valid_topic_shift_label>.
+
+## OUTPUT FORMAT ##
+<U{utterance number}>
+<utterance_intent>{valid utterance intent}</utterance_intent>
+<topic_shift_label>{valid topic shift label}</topic_shift_label>
+</U{utterance number}>
+
+## INPUT ##
+{XML-structured dialogue}
+
+## OUTPUT ##

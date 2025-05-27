@@ -1,0 +1,23 @@
+<valid_topic_shift_label>
+<item>
+<name>YES</name>
+<desc>The current utterance has **no topical** relation to the preceding conversation context OR is the first utterance in the conversation, marking the beginning of a new dialogue segment.</desc>
+</item>
+<item>
+<name>NO</name>
+<desc>The current utterance has **relevant OR equal** topic to the preceding conversation context.</desc>
+</item>
+</valid_topic_shift_label>
+
+## TASK ##
+You are given a dialogue starting with U. From utterance number 0, you have to output the topic_shift_label using the list <valid_topic_shift_label>...</valid_topic_shift_label>.
+
+## OUTPUT FORMAT ##
+<U{utterance number}>
+<topic_shift_label>{valid topic shift label}</topic_shift_label>
+</U{utterance number}>
+
+## INPUT ##
+{XML-structured dialogue}
+
+## OUTPUT ##

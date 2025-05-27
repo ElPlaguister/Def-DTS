@@ -1,0 +1,62 @@
+<valid_utterance_intent>
+<item>
+<name>JUST_COMMENT</name>
+<desc>Commenting on the preceding context without any asking. Not a topic shift</desc>
+</item>
+<item>
+<name>JUST_ANSWER</name>
+<desc>Answering preceding utterance. Not a topic shift</desc>
+</item>
+<item>
+<name>DEVELOP_TOPIC</name>
+<desc>Developing the conversation to similar and inclusive sub-topics. Not a topic shift</desc>
+</item>
+<item>
+<name>INTRODUCE_TOPIC</name>
+<desc>Introducing a relevant but different topic. A topic shift</desc>
+</item>
+<item>
+<name>CHANGE_TOPIC</name>
+<desc>Completely changing the topic. A topic shift</desc>
+</item>
+</valid_utterance_intent>
+<valid_topic_shift_label>
+<item>
+<name>YES</name>
+<desc>The current utterance has **weak OR no topical** relation to the preceding conversation context OR is the first utterance in the conversation, marking the beginning of a new dialogue segment.</desc>
+</item>
+<item>
+<name>NO</name>
+<desc>The current utterance has **relevant OR equal** topic to the preceding conversation context.</desc>
+</item>
+</valid_topic_shift_label>
+
+## TASK ##
+You are given a dialogue starting with U. From utterance number 0, you have to answer the following sub-tasks for each utterance.
+1. Summarize the preceding and subsequent context in <=3 sentences seperately
+The range of the context should be previous or next 1~3 utterances except for the case of the first or last utterance.
+For example, given current utterance number is 2, preceding range is 0-1, subsequent range is 3-5.
+2. Output the utterance_intent
+Use the list <valid_utterance_intent>...</valid_utterance_intent> to categorize utterance.
+Consider topical difference between preceding and subsequent context.
+3. Output the topic_shift_label
+Use the list <valid_topic_shift_label>...</valid_topic_shift_label>.
+
+## OUTPUT FORMAT ##
+<U{utterance number}>
+<preceding_context>
+<range>{range of utterances referred in context}</range>
+<context>{context of the previous 1~3 utterances}</context>
+</preceding_context>
+<subsequent_context>
+<range>{range of utterances referred in context}</range>
+<context>{context of the next 1~3 utterances}</context>
+</subsequent_context>
+<utterance_intent>{valid utterance intent}</utterance_intent>
+<topic_shift_label>{valid topic shift label}</topic_shift_label>
+</U{utterance number}>
+
+## INPUT ##
+{XML-structured dialogue}
+
+## OUTPUT ##

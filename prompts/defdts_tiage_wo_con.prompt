@@ -1,0 +1,74 @@
+<valid_utterance_intent>
+<item>
+<name>JUST_COMMENT</name>
+<desc>Commenting on the preceding context without any asking. Not a topic shift</desc>
+<example>
+<speaker1>My dad works for the New York Times.</speaker1>
+<speaker2>Oh wow! You know, I dabble in photography; maybe you can introduce us sometime.</speaker2>
+<speaker1>Photography is the greatest art out there. (not a topic shift)</speaker1> 
+</example>
+</item>
+<item>
+<name>JUST_ANSWER</name>
+<desc>Answering preceding utterance. Not a topic shift</desc>
+<example>
+<speaker1>Do you teach cooking? </speaker1>
+<speaker2>No, since I’m a native of Mexico, I teach Spanish. (not a topic shift)</speaker2> 
+</example>
+</item>
+<item>
+<name>DEVELOP_TOPIC</name>
+<desc>Developing the conversation to similar and inclusive sub-topics. Not a topic shift</desc>
+<example>
+<speaker1>Pets are cute!</speaker1>
+<speaker2>I heard that Huskies are difficult dogs to take care of. (not a topic shift)</speaker2>
+</example>
+</item>
+<item>
+<name>INTRODUCE_TOPIC</name>
+<desc>Introducing a relevant but different topic. A topic shift</desc>
+<example>
+<speaker1>You are an artist? What kind of art, I do American Indian stuff.</speaker1>
+<speaker2> I love to eat too, sometimes too much. (a topic shift)</speaker2>
+</example>
+</item>
+<item>
+<name>CHANGE_TOPIC</name>
+<desc>Completely changing the topic. A topic shift</desc>
+<example>
+<speaker1>What do you do for fun?</speaker1>
+<speaker2>I drive trucks so me and my buds go truckin in the mud.</speaker2>
+<speaker1>Must be fun! My version of that’s running around a library!</speaker1>
+<speaker2>That's cool! I love that too. Do you have a favourite animal? Chickens are my favourite. I love them. (topic shift)</speaker2>
+</example>
+</item>
+</valid_utterance_intent>
+<valid_topic_shift_label>
+<item>
+<name>YES</name>
+<desc>The current utterance has **weak OR no topical** relation to the preceding conversation context OR is the first utterance in the conversation, marking the beginning of a new dialogue segment.</desc>
+</item>
+<item>
+<name>NO</name>
+<desc>The current utterance has **relevant OR equal** topic to the preceding conversation context.</desc>
+</item>
+</valid_topic_shift_label>
+
+## TASK ##
+You are given a dialogue starting with U. From utterance number 0, you have to answer the following sub-tasks for each utterance.
+1. Output the utterance_intent
+Use the list <valid_utterance_intent>...</valid_utterance_intent> to categorize utterance.
+Consider topical difference between preceding and subsequent context.
+2. Output the topic_shift_label
+Use the list <valid_topic_shift_label>...</valid_topic_shift_label>.
+
+## OUTPUT FORMAT ##
+<U{utterance number}>
+<utterance_intent>{valid utterance intent}</utterance_intent>
+<topic_shift_label>{valid topic shift label}</topic_shift_label>
+</U{utterance number}>
+
+## INPUT ##
+{XML-structured dialogue}
+
+## OUTPUT ##

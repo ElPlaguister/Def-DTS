@@ -1,0 +1,68 @@
+<valid_utterance_intent>
+<item>
+<name>JUST_COMMENT</name>
+<desc>Commenting on the preceding context without any asking. Not a topic shift</desc>
+<example>
+<user>I will just need the area and address, can you confirm both of those please?</user>
+<agent>Sure. The Riverside Brasserie is located in the center area of town and the address is Doubletree by Hilton Cambridge Granta Place Mill Lane.</agent>
+<user>That's it, thank you very much for your help. (not a topic shift)</user>
+</example>
+</item>
+<item>
+<name>JUST_ANSWER</name>
+<desc>Answering preceding utterance. Not a topic shift</desc>
+<example>
+<user>I'll be departing from Cambridge.</user>
+<agent>And what day will you be traveling on?</agent>
+<user>I would like to travel on Sunday. (not a topic shift)</user>
+</example>
+</item>
+<item>
+<name>DEVELOP_TOPIC</name>
+<desc>Developing the conversation to similar and inclusive sub-topics. Not a topic shift</desc>
+<example>
+<user>The Riverside Brasserie sounds good. Can you tell me the area they are located in?</user>
+<agent>Riverside Brasserie is located in the centre. Can I help you with anything else today?</agent>
+<user>I don't know that area very well, can you give me the exact address? (not a topic shift)</user>
+</example>
+</item>
+<item>
+<name>CHANGE_TOPIC</name>
+<desc>Completely changing the topic. A topic shift</desc>
+<example>
+<user>Can you arrange travel for 7 people for TR1389 on Sunday?</user>
+<agent>Of course. The reference number is NI1LNIIP. The total fee is 56.56 which can be paid at the station.</agent>
+<user>Are there any restaurants that serve New Zealand food? (a topic shift)</user>
+</example>
+</item>
+</valid_utterance_intent>
+<valid_topic_shift_label>
+<item>
+<name>YES</name>
+<desc>The current utterance completely changes the topic from preceding context.</desc>
+</item>
+<item>
+<name>NO</name>
+<desc>The current utterance just comments, answers, develops about preceding context or the first utterance of given dialogue, in other words, the case of U0.</desc>
+</item>
+</valid_topic_shift_label>
+
+## TASK ##
+You are given a dialogue starting with U. From utterance number 0, you have to answer the following sub-tasks for each utterance.
+1. Output the utterance_intent
+Use the list <valid_utterance_intent>...</valid_utterance_intent> to categorize utterance.
+Consider topical difference between preceding and subsequent context.
+2. Output the topic_shift_label
+Use the list <valid_topic_shift_label>...</valid_topic_shift_label>.
+Consider previously outputted utterance_intent.
+
+## OUTPUT FORMAT ##
+<U{utterance number}>
+<utterance_intent>{valid utterance intent}</utterance_intent>
+<topic_shift_label>{valid topic shift label}</topic_shift_label>
+</U{utterance number}>
+
+## INPUT ##
+{XML-structured dialogue}
+
+## OUTPUT ##

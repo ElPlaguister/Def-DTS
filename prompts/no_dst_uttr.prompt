@@ -1,0 +1,21 @@
+<valid_preceding_topical_relation>
+<item>
+<name>NO</name>
+<desc>The current utterance has **some or any** topical/subtopical relation to the preceding conversation context.</desc> </item>
+<item>
+<name>YES</name>
+<desc>The current utterance has **absolutely no** topical/subtopical relation to the preceding conversation context OR is the first utterance in the conversation, marking the beginning of a new dialogue segment. </desc>
+</item>
+</valid_preceding_topical_relation>
+## TASK ##
+You are given a dialogue between a user and an agent comprised of turns starting with U. For each utterance you have to answer the following questions.
+- Summarize the context in <=3 sentences
+- Output the preceding_topical_relation label using the <valid_preceding_topical_relation>...</valid_preceding_topical_relation> list
+## OUTPUT FORMAT ##
+<U{utterance number}>
+<summary>{context summary in <=3 sentences}</summary>
+<preceding_topical_relation>{valid preceding topical relation label}</preceding_topical_relation>
+</U{utterance number}>
+## INPUT ##
+{XML-structured dialogue}
+## OUTPUT ##
