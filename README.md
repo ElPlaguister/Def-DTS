@@ -2,7 +2,7 @@
 Official code for ACL 2025 paper: Def-DTS: Deductive Reasoning for Open-domain Dialogue Topic Segmentation.
 
 ## Overview
-<!-- ![](https://github.com/user-attachments/files) -->
+![Image](https://github.com/user-attachments/assets/1bd13ff8-2c6b-46aa-a942-57682405fdaf)
 
 This is the overview of Def-DTS framework.
 
